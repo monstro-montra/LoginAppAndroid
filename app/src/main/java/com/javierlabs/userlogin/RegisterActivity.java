@@ -61,17 +61,14 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(RegisterActivity.this, "Authentication Succeeded.",
-                                        Toast.LENGTH_SHORT).show();
-                            } else {
-                                // If sign in fails, display a message to the user.
-                                Toast.makeText(RegisterActivity.this, "Authentication failed.",
-                                        Toast.LENGTH_SHORT).show();
-                            }
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(RegisterActivity.this, "Authentication Succeeded.",
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     });
 
