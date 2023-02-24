@@ -19,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/tv_email"
+            app:layout_constraintBottom_toTopOf="@+id/loginBtn"
             android:text="@string/setter"
             android:visibility="gone"
             android:textColor="@color/colorPrimary"
@@ -46,7 +46,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/view_email"
+            app:layout_constraintBottom_toTopOf="@+id/tv_pass"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"
             >
@@ -60,25 +60,12 @@
                 android:drawableStart="@drawable/baseline_email_24"
                 android:drawablePadding="12dp"
                 android:textColor="@color/colorInputText"
-                android:hint="@string/username"
+                android:hint="@string/email"
                 android:inputType="text"
                 android:padding="16dp"
                 android:textSize="14sp"
                 />
         </com.google.android.material.textfield.TextInputLayout>
-        <View
-            android:id="@+id/view_email"
-            android:layout_height="0.5dp"
-            android:layout_width="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/darker_gray"
-            />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tv_pass"
@@ -86,7 +73,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_email"
+            app:layout_constraintTop_toBottomOf="@+id/tv_email"
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
@@ -108,26 +95,15 @@
                 android:padding="16dp"
                 android:textSize="14sp"
                 />
-        </com.google.android.material.textfield.TextInputLayout>
 
-        <View
-            android:id="@+id/view_pass"
-            android:layout_width="match_parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:background="@android:color/darker_gray"
-            app:layout_constraintTop_toBottomOf="@+id/tv_pass"
-            android:layout_height="0.5dp"
-            />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/forgot_password"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/view_pass"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pass"
             android:text="@string/forgot_password"
             android:layout_marginTop="5dp"
             android:padding="4dp"

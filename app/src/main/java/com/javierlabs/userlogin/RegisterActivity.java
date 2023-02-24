@@ -47,8 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnSignUp.setOnClickListener(view -> {
             String email, password;
-            email = String.valueOf(edEmail);
-            password = String.valueOf(edPassword);
+            email = String.valueOf(edEmail.getText());
+            password = String.valueOf(edPassword.getText());
 
             if (TextUtils.isEmpty(email)){
                 Toast.makeText(RegisterActivity.this,"Enter Email", Toast.LENGTH_SHORT).show();
@@ -61,14 +61,20 @@ public class RegisterActivity extends AppCompatActivity {
             }
 
             mAuth.createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(task -> {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(RegisterActivity.this, "Authentication Succeeded.",
-                                    Toast.LENGTH_SHORT).show();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(RegisterActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(RegisterActivity.this, "Authentication Succeeded.",
+                                        Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                        startActivity(intent);
+                                        finish();
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                Toast.makeText(RegisterActivity.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
                     });
 

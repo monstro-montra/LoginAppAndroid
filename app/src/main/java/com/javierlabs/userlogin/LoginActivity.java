@@ -19,40 +19,43 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     Button btnLogin;
-    EditText edUsername, edPassword;
+    EditText edEmail, edPassword;
     TextView noAccount;
     FirebaseAuth mAuth;
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if(currentUser != null){ //if user is already logged in, open main activity
-//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(intent);
-//            finish();
-//        }
-//    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){ //if user is already logged in, open main activity
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        mAuth = FirebaseAuth.getInstance();
+
         //instantiate views
         btnLogin = findViewById(R.id.loginBtn);
-        edUsername = findViewById(R.id.et_email);
+        edEmail = findViewById(R.id.et_email);
         edPassword = findViewById(R.id.et_password);
         noAccount = findViewById(R.id.tvCreateAccount);
 
         noAccount.setOnClickListener(view -> {
                 startActivity(new Intent(LoginActivity.this, RegisterActivity.class)); //switch to Register activity on click for noAccount
+                finish();
         });
 
         btnLogin.setOnClickListener(view -> {
                 String email, password;
-                email = String.valueOf(edUsername);
-                password = String.valueOf(edPassword);
+                email = String.valueOf(edEmail.getText());
+                password = String.valueOf(edPassword.getText());
 
             if (TextUtils.isEmpty(email)){
                 Toast.makeText(LoginActivity.this,"Enter your email.", Toast.LENGTH_SHORT).show();
