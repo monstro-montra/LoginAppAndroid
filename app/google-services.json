@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "200764471293",
+    "project_id": "login-register-firebase-e34a0",
+    "storage_bucket": "login-register-firebase-e34a0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:200764471293:android:44f9c5ac4f97d50af2cb94",
+        "android_client_info": {
+          "package_name": "com.javierlabs.userlogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "200764471293-d776calf3414p098eqnln5t7ba9oupab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6YN2l-skdRwRNm63uEGVX-AXpdwpjm9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "200764471293-d776calf3414p098eqnln5t7ba9oupab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
